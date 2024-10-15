@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "WinForm_StrategyGame/1.0.0": {
+        "runtime": {
+          "WinForm_StrategyGame.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WinForm_StrategyGame/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

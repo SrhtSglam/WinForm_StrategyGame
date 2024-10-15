@@ -1,0 +1,14 @@
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\bin\Debug\net8.0-windows\WinForm_StrategyGame.exe
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\bin\Debug\net8.0-windows\WinForm_StrategyGame.deps.json
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\bin\Debug\net8.0-windows\WinForm_StrategyGame.runtimeconfig.json
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\bin\Debug\net8.0-windows\WinForm_StrategyGame.dll
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\bin\Debug\net8.0-windows\WinForm_StrategyGame.pdb
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\WinForm_StrategyGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\WinForm_StrategyGame.AssemblyInfoInputs.cache
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\WinForm_StrategyGame.AssemblyInfo.cs
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\WinForm_StrategyGame.csproj.CoreCompileInputs.cache
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\WinForm_StrategyGame.dll
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\refint\WinForm_StrategyGame.dll
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\WinForm_StrategyGame.pdb
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\WinForm_StrategyGame.genruntimeconfig.cache
+C:\Users\stj067\Documents\GitHub\WinForm_StrategyGame\obj\Debug\net8.0-windows\ref\WinForm_StrategyGame.dll
