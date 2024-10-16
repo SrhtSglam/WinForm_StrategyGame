@@ -2,25 +2,18 @@ using System.Net.Security;
 
 namespace WinForm_StrategyGame{
     public class ITurnRepository : ITurn{
-        Random rnd;
         public void NextTurn(Model model, frmGame frm){
             model.EventTick--;
             if(model.EventTick < 0){
                 EventCreator(model, frm);
-                model.EventTick = rnd.Next(5,30);
+                model.EventTick = model.rnd.Next(5,30);
             }
             string imagePath;
-            foreach(var items in model.ownerProvinces){
-                imagePath = items.NameId + items.FirstId.ToString() + "_" + items.LastId.ToString();
-            }
-
-            if(rnd == null){
-                rnd = new Random();
-            }
+            imagePath = model.province.NameId + model.province.FirstId.ToString() + "_" + model.province.LastId.ToString();
             foreach(var items in model.nations){
-                items.Income = rnd.Next(-100, 100) * model.ownerProvinces.Count;
+                items.Income = model.rnd.Next(-100, 100) * model.province.LastId;
                 items.Treasury = items.Treasury + items.Income;
-                items.Manpower += rnd.Next(0, 100) * model.ownerProvinces.Count;
+                items.Manpower += model.rnd.Next(0, 100) * model.province.LastId;
             }
 
             string armyText, manpowerText, incomeText, treasuryText;
@@ -44,9 +37,9 @@ namespace WinForm_StrategyGame{
             frm.lblIncome.Text = incomeText;
             frm.lblTreasury.Text = treasuryText;
 
-            // frm.pcbMap.Image = Image.FromFile($"{model.ownerProvinces[0].NameId}{model.ownerProvinces[0].FirstId.ToString()}_{model.ownerProvinces[0].LastId.ToString()}");
-            frm.pcbMap.Image = Image.FromFile($"img/{model.ownerProvinces[0].FolderName}/{model.ownerProvinces[0].NameId}{model.ownerProvinces[0].FirstId.ToString()}_{model.ownerProvinces[0].LastId.ToString()}.png");
-            // MessageBox.Show($"img/{model.ownerProvinces[0].NameId}{model.ownerProvinces[0].FirstId.ToString()}_{model.ownerProvinces[0].LastId.ToString()}.png");
+            // frm.pcbMap.Image = Image.FromFile($"{model.province.NameId}{model.province.FirstId.ToString()}_{model.province.LastId.ToString()}");
+            frm.pcbMap.Image = Image.FromFile($"img/{model.province.FolderName}/{model.province.NameId}{model.province.FirstId.ToString()}_{model.province.LastId.ToString()}.png");
+            // MessageBox.Show($"img/{model.province.NameId}{model.province.FirstId.ToString()}_{model.province.LastId.ToString()}.png");
         }
 
         public void NewArmy(Model model, frmGame frm){
@@ -65,7 +58,7 @@ namespace WinForm_StrategyGame{
         }
 
         public void EventCreator(Model model, frmGame frm){
-            int eventNum = rnd.Next(0, 4);
+            int eventNum = model.rnd.Next(0, 4);
             switch (eventNum){
                 case 0:
                     MessageBox.Show("Topraklarınızdan birinde doğal afet oldu.\n-500 MP", "Afet");
@@ -74,9 +67,9 @@ namespace WinForm_StrategyGame{
                 case 1:
                     DialogResult dr = MessageBox.Show("Bir ülke sana katılmak istedi.", "Birleşme", MessageBoxButtons.YesNo);
                     if(dr == DialogResult.Yes){
-                        int randomNumber = rnd.Next(0, 2);
+                        int randomNumber = model.rnd.Next(0, 2);
                         Event_LandChange(model, frm, randomNumber);
-                        model.ownerProvinces[0].FirstId++;
+                        model.province.FirstId++;
                     }
                     else{
                         MessageBox.Show("Kabul Edilmedi");
@@ -93,16 +86,16 @@ namespace WinForm_StrategyGame{
         }
 
         public void Event_LandChange(Model model, frmGame frm, int rndNum){
-            if(model.ownerProvinces[0].FirstId == 1)
-                model.ownerProvinces[0].FirstId++;
-            else if(model.ownerProvinces[0].FirstId == 2 && model.ownerProvinces[0].LastId == 1){
-                model.ownerProvinces[0].LastId++;
+            if(model.province.FirstId == 1)
+                model.province.FirstId++;
+            else if(model.province.FirstId == 2 && model.province.LastId == 1){
+                model.province.LastId++;
             }
-            else if(model.ownerProvinces[0].NameId == "M" || model.ownerProvinces[0].NameId == "U" && model.ownerProvinces[0].FirstId == 2 && model.ownerProvinces[0].LastId == 2){
-                model.ownerProvinces[0].FirstId++;
+            else if(model.province.NameId == "M" || model.province.NameId == "U" && model.province.FirstId == 2 && model.province.LastId == 2){
+                model.province.FirstId++;
             }
-            else if(model.ownerProvinces[0].NameId == "C" || model.ownerProvinces[0].NameId == "L" && model.ownerProvinces[0].FirstId == 2 && model.ownerProvinces[0].LastId == 2){
-                model.ownerProvinces[0].FirstId++;
+            else if(model.province.NameId == "C" || model.province.NameId == "L" && model.province.FirstId == 2 && model.province.LastId == 2){
+                model.province.FirstId++;
             }
 
         }

@@ -59,8 +59,15 @@ partial class frmGame
         if(btnExit == null){btnExit = new Button(); btnExit.Name = "btnExit"; btnExit.Size = new Size(90, 50); btnExit.Location = new Point(displayX - 110, 20); btnExit.BackColor = Color.IndianRed; btnExit.Font = new Font("Arial", 14); btnExit.Text = "Exit"; btnExit.TextAlign = ContentAlignment.MiddleCenter; btnExit.Click += Exit_OnClick; allObjects.Add(btnExit);}
         if(btnNext == null){btnNext = new Button(); btnNext.Name = "btnName"; btnNext.Size = new Size(280, 50); btnNext.Location = new Point(20, displayY - 70); btnNext.BackColor = Color.Bisque; btnNext.Font = new Font("Arial", 14); btnNext.Text = "Next Turn"; btnNext.TextAlign = ContentAlignment.MiddleCenter; btnNext.Click += Next_OnClick; allObjects.Add(btnNext);}
         if(btnAddArmy == null){btnAddArmy = new Button(); btnAddArmy.Name = "btnAddArmy"; btnAddArmy.Size = new Size(280, 50); btnAddArmy.Location = new Point(20, displayY - 140); btnAddArmy.BackColor = Color.Bisque; btnAddArmy.Font = new Font("Arial", 14); btnAddArmy.Text = "New Army"; btnAddArmy.TextAlign = ContentAlignment.MiddleCenter; btnAddArmy.Click += AddArmy_OnClick; allObjects.Add(btnAddArmy);}
+        if(btnDynasty == null){btnDynasty = new Button(); btnDynasty.Name = "btnDynasty"; btnDynasty.Size = new Size(280, 50); btnDynasty.Location = new Point(20, displayY - 210); btnDynasty.BackColor = Color.Bisque; btnDynasty.Font = new Font("Arial", 14); btnDynasty.Text = "Show Dynasty"; btnDynasty.TextAlign = ContentAlignment.MiddleCenter; btnDynasty.Click += Dynasty_OnClick; allObjects.Add(btnDynasty);}
     
         if(pcbMap == null){pcbMap = new PictureBox(); pcbMap.Name = "pcbMap"; pcbMap.Size = new Size(800, 475); pcbMap.Location = new Point(400, 180); pcbMap.BackColor = Color.White; pcbMap.Image = Image.FromFile("img/Map_Default.png"); pcbMap.SizeMode = PictureBoxSizeMode.CenterImage; allObjects.Add(pcbMap);}
+        if(pcbFather == null){pcbFather = new PictureBox(); pcbFather.Name = "pcbFather"; pcbFather.Size = new Size(160, 180); pcbFather.Location = new Point(600, 180); pcbFather.BackColor = Color.White; pcbFather.Image = Image.FromFile("img/Map_Default.png"); pcbFather.SizeMode = PictureBoxSizeMode.CenterImage; allObjects.Add(pcbFather);}
+        if(pcbMother == null){pcbMother = new PictureBox(); pcbMother.Name = "pcbMother"; pcbMother.Size = new Size(160, 180); pcbMother.Location = new Point(800, 180); pcbMother.BackColor = Color.White; pcbMother.Image = Image.FromFile("img/Map_Default.png"); pcbMother.SizeMode = PictureBoxSizeMode.CenterImage; allObjects.Add(pcbMother);}
+        if(pcbChild0 == null){pcbChild0 = new PictureBox(); pcbChild0.Name = "pcbFather"; pcbChild0.Size = new Size(160, 180); pcbChild0.Location = new Point(700, 400); pcbChild0.BackColor = Color.White; pcbChild0.Image = Image.FromFile("img/Map_Default.png"); pcbChild0.SizeMode = PictureBoxSizeMode.CenterImage; allObjects.Add(pcbChild0);}
+        // if(pcbFather == null){pcbFather = new PictureBox(); pcbFather.Name = "pcbFather"; pcbFather.Size = new Size(160, 180); pcbFather.Location = new Point(400, 180); pcbFather.BackColor = Color.White; pcbFather.Image = Image.FromFile("img/Map_Default.png"); pcbFather.SizeMode = PictureBoxSizeMode.CenterImage; allObjects.Add(pcbFather);}
+        // if(pcbFather == null){pcbFather = new PictureBox(); pcbFather.Name = "pcbFather"; pcbFather.Size = new Size(160, 180); pcbFather.Location = new Point(400, 180); pcbFather.BackColor = Color.White; pcbFather.Image = Image.FromFile("img/Map_Default.png"); pcbFather.SizeMode = PictureBoxSizeMode.CenterImage; allObjects.Add(pcbFather);}
+        // if(pcbFather == null){pcbFather = new PictureBox(); pcbFather.Name = "pcbFather"; pcbFather.Size = new Size(160, 180); pcbFather.Location = new Point(400, 180); pcbFather.BackColor = Color.White; pcbFather.Image = Image.FromFile("img/Map_Default.png"); pcbFather.SizeMode = PictureBoxSizeMode.CenterImage; allObjects.Add(pcbFather);}
 
         if(UIPanel == null){UIPanel = new Panel(); UIPanel.Name = "pnlUI"; UIPanel.Size = new Size(1280, 90); UIPanel.Location = new Point(0, 0); UIPanel.BackColor = Color.Gainsboro; allObjects.Add(UIPanel);}
         if(GamePanel == null){GamePanel = new Panel(); GamePanel.Name = "pnlGame"; GamePanel.Size = new Size(960, 630); GamePanel.Location = new Point(320, 90); GamePanel.BackColor = Color.Black; allObjects.Add(GamePanel);}
@@ -70,8 +77,8 @@ partial class frmGame
 
     Panel UIPanel, GamePanel, ActionPanel;
     public Label lblNationName, lblArmy, lblManPower, lblTreasury, lblIncome;
-    Button btnExit, btnNext, btnAddArmy;
-    public PictureBox pcbMap;
+    Button btnExit, btnNext, btnAddArmy, btnDynasty;
+    public PictureBox pcbMap, pcbFather, pcbMother, pcbChild0, pcbChild1, pcbChild2;
     List<Control> allObjects = new List<Control>();
 
     #endregion

@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 namespace WinForm_StrategyGame
 {
     public partial class frmGame : Form
@@ -5,94 +7,45 @@ namespace WinForm_StrategyGame
         public Model model;
         public int selectedId; //Id
         private ITurn turn = new ITurnRepository();
-        Random rnd;
+        private IDefinition def = new IDefinitionRepository();
+        private IPortre portre = new IPortreRepository();
 
         public frmGame()
         {
             InitializeComponent();
             if(model == null)
                 model = new Model();
-            if(model.nations == null)
-                model.nations = new List<Nation>();
-            if(model.nations == null)
-                model.nations = new List<Nation>();
-            if(model.ownerProvinces == null)
-                model.ownerProvinces = new List<Province>();
-            if(rnd == null){
-                rnd = new Random();
-            }
-            model.EventTick = rnd.Next(5, 30); //New event tick
-            model.nations.Add(new Nation(){
-                Id = 0,
-                Name = "Munster",
-                Army = 0,
-                Manpower = 0,
-                Income = 0,
-                Treasury = 1000
-            });
+            def.DefinitionItems(model);
+            model.EventTick = model.rnd.Next(5, 30); //New event tick
+            def.NationsCreated(model);
 
-            model.nations.Add(new Nation(){
-                Id = 1,
-                Name = "Connaught",
-                Army = 0,
-                Manpower = 0,
-                Income = 0,
-                Treasury = 1000
-            });
-
-            model.nations.Add(new Nation(){
-                Id = 2,
-                Name = "Leinster",
-                Army = 0,
-                Manpower = 0,
-                Income = 0,
-                Treasury = 1000
-            });
-
-            model.nations.Add(new Nation(){
-                Id = 3,
-                Name = "Ulster",
-                Army = 0,
-                Manpower = 0,
-                Income = 0,
-                Treasury = 1000
-            });
-
+            selectedId = 0;
             switch (selectedId){
                 case 0:
-                    model.ownerProvinces.Add(new Province(){
-                        NameId = "M",
-                        FirstId = 1,
-                        LastId = 1,
-                        FolderName = "munster"
-                    });
+                    model.province.NameId = "M";
+                    model.province.FolderName = "munster";
+                    model.province.FirstId = 1;
+                    model.province.LastId = 1;
                 break;
                 case 1:
-                    model.ownerProvinces.Add(new Province(){
-                        NameId = "C",
-                        FirstId = 1,
-                        LastId = 1,
-                        FolderName = "connaught"
-                    });
+                    model.province.NameId = "L";
+                    model.province.FolderName = "leinster";
+                    model.province.FirstId = 1;
+                    model.province.LastId = 1;
                 break;
                 case 2:
-                    model.ownerProvinces.Add(new Province(){
-                        NameId = "L",
-                        FirstId = 1,
-                        LastId = 1,
-                        FolderName = "leinster"
-                    });
+                    model.province.NameId = "U";
+                    model.province.FolderName = "ulster";
+                    model.province.FirstId = 1;
+                    model.province.LastId = 1;
                 break;
                 case 3:
-                    model.ownerProvinces.Add(new Province(){
-                            NameId = "U",
-                            FirstId = 1,
-                            LastId = 1,
-                            FolderName = "ulster"
-                        });
+                    model.province.NameId = "C";
+                    model.province.FolderName = "connaught";
+                    model.province.FirstId = 1;
+                    model.province.LastId = 1;
                 break;
             }
-            selectedId = 0;
             turn.NextTurn(model, this);
         }
 
@@ -113,6 +66,18 @@ namespace WinForm_StrategyGame
         private void AddArmy_OnClick(object sender, EventArgs e)
         {
             turn.NewArmy(model, this);
+        }
+
+        private void Dynasty_OnClick(object sender, EventArgs e)
+        {
+            if(pcbMap.Visible){
+                pcbMap.Visible = false;
+                portre.CreateDynastyTable(model, this);
+            }
+            else{
+                pcbMap.Visible = true;
+                portre.DeleteDynastyTable(model, this);
+            }
         }
     }
 }
