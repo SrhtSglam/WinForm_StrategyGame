@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WinForm_StrategyGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d51656e9b73dec67be51216c653f74a3be5cf2ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("WinForm_StrategyGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WinForm_StrategyGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
